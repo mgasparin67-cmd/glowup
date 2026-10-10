@@ -37,3 +37,5 @@ Initial install failed ENOSPC with zero free C: space; space was subsequently re
 
 
 Progress update: browser PNG generation and download verified using synthetic dated check-ins; mobile 375px comparison controls had no horizontal overflow. QA route and synthetic browser history removed. Native social posting/share-sheet completion has not been tested. Privacy copy replacement verified in the actual DOM and covered by a regression test.
+
+Visual refresh: Taste Skill and UI/UX Pro Max applied. Desktop/mobile screenshots updated. Layout checked at 320, 375, 768, 1024, 1440 and 812x375 (landscape), no horizontal overflow. Primary/secondary text and button contrast exceed AA text thresholds; input boundaries measured 3.63:1. Visible focus and reduced-motion CSS retained; OS-level text scaling and physical-device share sheets remain untested. Local font files, licenses and optimized editorial WebP retained. Exported card fonts and layout checked using synthetic data; temporary route and fixtures removed. 53 tests and TypeScript pass after the refresh.
