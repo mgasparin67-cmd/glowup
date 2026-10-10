@@ -35,3 +35,5 @@ Review behaviors set aside: EXIF/model placement now checked on public fixtures,
 
 Final verification: 46/46 tests, TypeScript and final production build pass. Client asset scan found no server secret names/provider adapter/test-key sentinel. Production assets match retained originals. Local source synchronization succeeded; packaging is resumed with installed Git Bash and force-local tar paths.
 Ruling: Use installed Git Bash and TAR_OPTIONS=--force-local for the Sites packager — its Bash helper treats Windows drive-letter archives as remote tar targets — process-local environment adjustment, no plugin source changes.
+
+Branding: renamed the app to glowup at the user's request. Extracted the supplied PDF's primary wordmark and sparkle icon for header/footer and favicon; retained the original in docs/references. Desktop and 375px mobile checked: both logo assets load, no horizontal overflow. Existing Sites project preserved; display title updated.

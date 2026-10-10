@@ -1,4 +1,4 @@
-# FaceSkin
+# glowup
 
 Responsive private website for calculated facial ratios and cosmetic skincare observations. Source: this saved project. No app accounts, payments or history. No real product catalog is supplied; categories are clearly labeled.
 
