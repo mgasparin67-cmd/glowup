@@ -32,3 +32,6 @@ Ruling: Source is committed after the full verified implementation rather than s
 Ruling: Exclude reference PDFs and runtime artifacts from Vite watch — a Windows EBUSY watcher error crashed preview during PDF copying — reference-document changes no longer trigger HMR.
 
 Review behaviors set aside: EXIF/model placement now checked on public fixtures, with physical-device accuracy still unvalidated; delayed HTTP replacement follows generation/abort checks but existing behavioral test delays detection; client-forged geometry remains explicitly documented; private-host header injection and audience enforcement await deployment; native/public access and medical validation remain out of scope. No overlooked source claim is treated as proven by synthetic tests.
+
+Final verification: 46/46 tests, TypeScript and final production build pass. Client asset scan found no server secret names/provider adapter/test-key sentinel. Production assets match retained originals. Local source synchronization succeeded; packaging is resumed with installed Git Bash and force-local tar paths.
+Ruling: Use installed Git Bash and TAR_OPTIONS=--force-local for the Sites packager — its Bash helper treats Windows drive-letter archives as remote tar targets — process-local environment adjustment, no plugin source changes.

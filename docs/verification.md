@@ -11,7 +11,7 @@ Implemented the approved responsive website with the retained Sites Vinext start
 - Flow tests verify consent, duplicate clicks, resource release, replacement during detection, restart and keyless state. The generation guard also protects delayed HTTP results; that case has no separate delayed-HTTP test yet.
 - Real local Miniflare/D1 admission checks enforce 5 per visitor/hour and 20 aggregate/day under concurrent requests. A new adapter sees retained counters. A full service dispose/reopen test is deferred.
 - Drizzle migration generated and inspected, then applied successfully to the local preview database (four schema statements).
-- Production build succeeded, and a final rebuild after QA fixes is required before packaging. Source synchronization status will be appended after the helper returns.
+- Final production rebuild after QA fixes succeeded through the Sites source workflow. Generated client assets contain no server secret names, provider endpoint or test-key sentinel. Production worker/model/runtime assets match the retained originals. Source synchronization succeeded; local packaging required Git Bash on PATH and TAR_OPTIONS=--force-local to handle Windows drive letters.
 
 ## Browser QA
 
@@ -34,3 +34,4 @@ No user photos or questionnaire responses are persisted by the app. D1 stores HM
 Real product data is empty. Imported reference text is also empty; the supplied ratio PDF is documentation, not AI instructions. Future optional gender/reference-group selection and comparison bars are documented in future-ratio-references.md with source/sampling/measurement caveats and the Liu paper's published correction. Most requested profile, calibrated or cephalometric metrics are unavailable in this frontal-selfie phase.
 
 Initial install failed ENOSPC with zero free C: space; space was subsequently restored and locked installation succeeded. The Sites npm wrapper has a Windows shim-path failure, so the starter's unchanged installer/framework entrypoints were invoked via absolute Node/npm. A Vite Windows EBUSY error on the copied PDF was resolved by excluding reference PDFs/runtime artifacts from HMR watch. These are documented execution adaptations, not reasons to claim unperformed validation.
+
