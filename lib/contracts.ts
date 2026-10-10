@@ -1,0 +1,20 @@
+import {z} from 'zod';
+export const ConsentSchema=z.literal('true');
+export const StatusSchema=z.object({ready:z.boolean(),model:z.string(),catalogMode:z.enum(['provided','categories'])});
+export const ApiErrorSchema=z.object({error:z.object({code:z.string(),message:z.string(),retryable:z.boolean()})});
+export const QuestionnaireSchema=z.object({concerns:z.array(z.string().trim().min(1).max(80)).max(8),sensitivity:z.enum(['yes','no','unknown']),allergies:z.string().max(500),currentProducts:z.string().max(500),budget:z.number().finite().nonnegative().nullable(),country:z.string().max(80)}).strict();
+export const PointSchema=z.object({x:z.number().finite().min(0).max(1),y:z.number().finite().min(0).max(1),z:z.number().finite().min(-2).max(2)}).strict();
+export const FaceGeometrySchema=z.object({landmarks:z.array(PointSchema).length(478),width:z.number().int().min(32).max(4096),height:z.number().int().min(32).max(4096),transform:z.array(z.number().finite()).length(16)}).strict();
+export const RatioIdSchema=z.enum(['face_width_height','inner_eye_gap_width','mouth_width_face_width']);
+export const RatioSchema=z.object({id:RatioIdSchema,label:z.string(),value:z.number().finite().positive(),definition:z.string()}).strict();
+const text=z.string().trim().min(1).max(700);
+export const ModelResultSchema=z.object({ratioExplanations:z.array(z.object({id:RatioIdSchema,explanation:text}).strict()).length(3),observations:z.array(z.object({feature:text,description:text,uncertainty:text}).strict()).min(1).max(5),recommendations:z.array(z.object({kind:z.enum(['catalog','category']),productId:z.string().max(80).nullable(),category:text,reason:text,usage:text,cautions:z.array(text).min(1).max(5)}).strict()).min(1).max(5),limitations:z.array(text).min(1).max(6),catalogMode:z.enum(['provided','categories'])}).strict();
+export const AnalyzeResultSchema=ModelResultSchema.extend({ratios:z.array(RatioSchema).length(3)}).strict();
+export type Point=z.infer<typeof PointSchema>;
+export type FaceGeometry=z.infer<typeof FaceGeometrySchema>;
+export type Ratio=z.infer<typeof RatioSchema>;
+export type Questionnaire=z.infer<typeof QuestionnaireSchema>;
+export type AnalyzeResult=z.infer<typeof AnalyzeResultSchema>;
+export type ApiError={error:{code:string;message:string;retryable:boolean}};
+export class AppError extends Error {constructor(public code:string,message:string,public status=400,public retryable=false){super(message);}}
+export const emptyAnswers:Questionnaire={concerns:[],sensitivity:'unknown',allergies:'',currentProducts:'',budget:null,country:''};
