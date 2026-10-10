@@ -4,7 +4,7 @@ Implemented the approved responsive website with the retained Sites Vinext start
 
 ## Automated checks
 
-- 46/46 tests across 11 files pass; TypeScript noEmit passes.
+- 53/53 tests across 13 files pass; TypeScript noEmit passes.
 - Controlled pixel ratios, aspect ratios, translation/scale, invalid coordinates, pose matrices and missing/multiple detections are tested.
 - MIME/signature/10 MiB boundaries, encoded-dimension bounds, questionnaire bounds and consent are tested.
 - Catalog exclusions, duplicate IDs, malformed records, unsafe purchase URLs, incomplete/refused/malformed provider results, unknown IDs, request settings, untrusted imported instructions and safe error responses are tested.
@@ -35,3 +35,5 @@ Real product data is empty. Imported reference text is also empty; the supplied 
 
 Initial install failed ENOSPC with zero free C: space; space was subsequently restored and locked installation succeeded. The Sites npm wrapper has a Windows shim-path failure, so the starter's unchanged installer/framework entrypoints were invoked via absolute Node/npm. A Vite Windows EBUSY error on the copied PDF was resolved by excluding reference PDFs/runtime artifacts from HMR watch. These are documented execution adaptations, not reasons to claim unperformed validation.
 
+
+Progress update: browser PNG generation and download verified using synthetic dated check-ins; mobile 375px comparison controls had no horizontal overflow. QA route and synthetic browser history removed. Native social posting/share-sheet completion has not been tested. Privacy copy replacement verified in the actual DOM and covered by a regression test.

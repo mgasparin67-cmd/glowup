@@ -29,3 +29,5 @@ The readiness endpoint intentionally returns setup-required until key, HMAC secr
 See [catalog import](docs/catalog-format.md), [API v1](docs/api-contract.md), [verification](docs/verification.md), and [mobile follow-up](docs/mobile-roadmap.md). Live analysis and publication require verified end-to-end checks; registration alone does not make a live site.
 
 The owner’s future gender-selected comparison-bar requirements, ratio tables and research caveats are preserved in [future reference data](docs/future-ratio-references.md). The source PDF is retained under `docs/references`. No incompatible measurement has been substituted into those future reference ranges.
+
+Optional progress cards: save dated numeric check-ins on this device, select two results and export a glowup comparison card. No photos or questionnaire answers are included in saved history. See docs/progress-sharing.md.

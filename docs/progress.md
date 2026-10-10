@@ -37,3 +37,7 @@ Final verification: 46/46 tests, TypeScript and final production build pass. Cli
 Ruling: Use installed Git Bash and TAR_OPTIONS=--force-local for the Sites packager — its Bash helper treats Windows drive-letter archives as remote tar targets — process-local environment adjustment, no plugin source changes.
 
 Branding: renamed the app to glowup at the user's request. Extracted the supplied PDF's primary wordmark and sparkle icon for header/footer and favicon; retained the original in docs/references. Desktop and 375px mobile checked: both logo assets load, no horizontal overflow. Existing Sites project preserved; display title updated.
+
+Progress cards: user selected dated comparisons and approved opt-in local check-ins with no photos. Added browser-local minimal ratio history (latest 30), chosen measurement comparisons, exact PNG preview, download/device share, and clear-history control. Synthetic QA route and check-ins removed after real canvas/download and mobile layout checks. Privacy paragraph replaced with the accurate photo/answer retention line and local-progress exception. See docs/progress-sharing.md.
+
+Progress final checks: 53/53 tests in 13 files and TypeScript pass. Privacy text replacement confirmed in the browser. Source/package synchronization resumes for the existing private Site.
