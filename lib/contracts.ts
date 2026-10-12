@@ -2,7 +2,7 @@ import {z} from 'zod';
 export const ConsentSchema=z.literal('true');
 export const StatusSchema=z.object({ready:z.boolean(),model:z.string(),catalogMode:z.enum(['provided','categories'])});
 export const ApiErrorSchema=z.object({error:z.object({code:z.string(),message:z.string(),retryable:z.boolean()})});
-export const QuestionnaireSchema=z.object({concerns:z.array(z.string().trim().min(1).max(80)).max(8),sensitivity:z.enum(['yes','no','unknown']),allergies:z.string().max(500),currentProducts:z.string().max(500),budget:z.number().finite().nonnegative().nullable(),country:z.string().max(80)}).strict();
+export const QuestionnaireSchema=z.object({concerns:z.array(z.string().trim().min(1).max(80)).max(10),sensitivity:z.enum(['yes','no','unknown']),allergies:z.string().max(500),currentProducts:z.string().max(500),budget:z.number().finite().nonnegative().nullable(),country:z.string().max(80)}).strict();
 export const PointSchema=z.object({x:z.number().finite().min(0).max(1),y:z.number().finite().min(0).max(1),z:z.number().finite().min(-2).max(2)}).strict();
 export const FaceGeometrySchema=z.object({landmarks:z.array(PointSchema).length(478),width:z.number().int().min(32).max(4096),height:z.number().int().min(32).max(4096),transform:z.array(z.number().finite()).length(16)}).strict();
 export const RatioIdSchema=z.enum(['face_width_height','inner_eye_gap_width','mouth_width_face_width']);

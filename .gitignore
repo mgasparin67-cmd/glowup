@@ -59,3 +59,8 @@ next-env.d.ts
 !.env.example
 /.superpowers/
 *.tsbuildinfo
+
+# Machine-specific graph tooling caches (reports and graph remain portable).
+/graphify-out/cache/
+/graphify-out/.*
+/graphify-out/*/.*

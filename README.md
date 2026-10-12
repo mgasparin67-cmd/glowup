@@ -1,6 +1,23 @@
 # glowup
 
-Responsive private website for calculated facial ratios and cosmetic skincare observations. Source: this saved project. No app accounts, payments or history. No real product catalog is supplied; categories are clearly labeled.
+## Transfer to a Mac — October 12, 2026
+
+This repository contains the current web app, source history, supplied logos and reference PDFs. It is not yet a SwiftUI/Xcode project. The latest design uses the liquid glass logo and a faint baby-blue gradient; see `docs/liquid-glass-design.md`.
+
+On your Mac, install Git and Node.js 22.13 or newer (with npm), then run:
+
+```sh
+git clone https://github.com/mgasparin67-cmd/glowup.git
+cd glowup
+npm run install:ci
+npm run dev
+```
+
+Open http://127.0.0.1:5173/ for the web preview. Dependency installation needs internet access. Secrets and local runtime state are deliberately excluded; configure the backend separately before live analysis. Apple subscriptions and monthly token budgets are planned, with access gating implemented, but native purchases, Apple verification and monthly usage metering are not complete. See `docs/subscriptions.md`.
+
+For iPhone development, create a separate SwiftUI project in Xcode and reuse the assets, flows and backend contracts. Browser-local progress history does not transfer through GitHub. The older account-transfer brief below is historical; this section and the newer design/subscription documents describe the current state.
+
+Responsive private website for calculated facial ratios and cosmetic skincare observations. Source: this saved project. No app accounts or payments. Optional dated numeric check-ins are saved only in the user's browser on this device. No real product catalog is supplied; categories are clearly labeled.
 
 ## Run and verify
 

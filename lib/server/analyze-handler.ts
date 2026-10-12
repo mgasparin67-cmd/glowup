@@ -1,3 +1,4 @@
+import {hasActiveSubscription} from './subscriptions';
 import {AppError,ConsentSchema,QuestionnaireSchema,FaceGeometrySchema,AnalyzeResultSchema,type AnalyzeResult} from '../contracts';
 import {MAX_PHOTO_BYTES,readPhotoDimensions} from '../image-validation';
 import {computeRatios} from '../face/geometry';
@@ -6,7 +7,7 @@ import {isReady,positiveLimit,type ServerEnvironment} from './environment';
 import {createUsageGuard,visitorHash} from './usage';
 import {analyzeWithOpenAI} from './openai';
 import type {AnalysisInput} from './prompt';
-type Dependencies={reserve?:(hash:string,now:Date)=>Promise<{allowed:boolean;retryAfterSeconds:number}>;analyze?:(input:AnalysisInput)=>Promise<Omit<AnalyzeResult,'ratios'>>};
+type Dependencies={subscriptionAccess?:(identity:string,env:ServerEnvironment)=>Promise<boolean>;reserve?:(hash:string,now:Date)=>Promise<{allowed:boolean;retryAfterSeconds:number}>;analyze?:(input:AnalysisInput)=>Promise<Omit<AnalyzeResult,'ratios'>>};
 export function json(body:unknown,status=200,extra:Record<string,string>={}){return Response.json(body,{status,headers:{'Cache-Control':'no-store',...extra}});}
 async function boundedForm(request:Request){
   const limit=MAX_PHOTO_BYTES+128*1024;
@@ -21,6 +22,7 @@ export async function handleAnalyze(request:Request,environment:ServerEnvironmen
   try{
     const origin=request.headers.get('Origin');if(origin!==new URL(request.url).origin)throw new AppError('forbidden','Only this website can submit an analysis.',403);
     const identity=request.headers.get('oai-authenticated-user-id');if(!identity)throw new AppError('forbidden','Sign in through the private preview host to continue.',403);
+    if(!await (dependencies.subscriptionAccess??hasActiveSubscription)(identity,environment))throw new AppError('subscription_required','An active glowup subscription is required for personalized analysis.',402);
     const form=await boundedForm(request);
     for(const key of ['image','questionnaire','geometry','consent'])if(form.getAll(key).length!==1)throw new AppError('invalid_input','The submission is incomplete or duplicated.');
     if([...form.keys()].some(k=>!['image','questionnaire','geometry','consent'].includes(k)))throw new AppError('invalid_input','Unexpected submission fields.');
