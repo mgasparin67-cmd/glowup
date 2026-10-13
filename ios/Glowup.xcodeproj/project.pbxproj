@@ -300,6 +300,7 @@
 				);
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = (
 					"$(inherited)",
+					"-ObjC",
 					"-force_load",
 					"\"$(PROJECT_DIR)/Vendor/MediaPipe/MediaPipeTasksCommon/frameworks/graph_libraries/libMediaPipeTasksCommon_device_graph.a\"",
 					"-lc++",
@@ -326,6 +327,7 @@
 				);
 				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
+					"-ObjC",
 					"-force_load",
 					"\"$(PROJECT_DIR)/Vendor/MediaPipe/MediaPipeTasksCommon/frameworks/graph_libraries/libMediaPipeTasksCommon_simulator_graph.a\"",
 					"-lc++",
@@ -382,6 +384,7 @@
 				);
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = (
 					"$(inherited)",
+					"-ObjC",
 					"-force_load",
 					"\"$(PROJECT_DIR)/Vendor/MediaPipe/MediaPipeTasksCommon/frameworks/graph_libraries/libMediaPipeTasksCommon_device_graph.a\"",
 					"-lc++",
@@ -408,6 +411,7 @@
 				);
 				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
+					"-ObjC",
 					"-force_load",
 					"\"$(PROJECT_DIR)/Vendor/MediaPipe/MediaPipeTasksCommon/frameworks/graph_libraries/libMediaPipeTasksCommon_simulator_graph.a\"",
 					"-lc++",
