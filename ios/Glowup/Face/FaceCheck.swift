@@ -37,10 +37,9 @@ nonisolated struct FaceCheck {
               matrix.rows == 4, matrix.columns == 4
         else { throw .poseUnavailable }
 
-        // Rebuild the column-major layout the web geometry code expects.
-        let transform = (0..<4).flatMap { column in
-            (0..<4).map { row in Double(matrix.value(atRow: UInt(row), column: UInt(column))) }
-        }
+        // `data` is already column-major (translation in 12...14), exactly what the web
+        // geometry code receives. `value(atRow:column:)` reads it as row-major, so don't use it.
+        let transform = (0..<16).map { Double(matrix.data[$0]) }
         let geometry = FaceGeometry(
             landmarks: face.map { FaceGeometry.Point(x: Double($0.x), y: Double($0.y), z: Double($0.z)) },
             width: cgImage.width,
